@@ -6,4 +6,4 @@ def complex_delete(a_dictionary, value):
         if value == a_dictionary.get(value_chosen):
             del a_dictionary[value_chosen]
 
-        return (a_dictionary)
+    return (a_dictionary)
