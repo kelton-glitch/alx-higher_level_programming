@@ -1,13 +1,11 @@
 #!/usr/bin/node
 const request = require('request');
-request(process.argv[2], function (err, response, body) {
-  if (err) {
-    console.log(err);
-  } else if (response.statusCode === 200) {
+request(process.argv[2], function (error, response, body) {
+  if (!error) {
     console.log(JSON.parse(body).results.reduce((count, film) => {
-      return count + film.characters.filter(character => character.includes('18')).length;
+      return film.characters.find((character) => character.endsWith('/18'))
+      ? count + 1
+      : count;
     }, 0));
-  } else {
-    console.log('Error code: ' + response.statusCode);
   }
 });
