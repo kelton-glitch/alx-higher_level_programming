@@ -14,12 +14,12 @@ request(url, function (error, response, body) {
         if (completed[task.userId]) {
           completed[task.userId]++;
         } else {
-        completed[task.userId] = 1;
+          completed[task.userId] = 1;
         }
+      }
     }
-        }
-        console.log(completed);
-    } else {
-        console.log('An error occurred. Status code: ' + response.statusCode);
-    }
+    console.log(completed);
+  } else {
+    console.log('An error occurred. Status code: ' + response.statusCode);
+  }
 });
